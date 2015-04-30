@@ -1,0 +1,10 @@
+{
+  "name": "taster-harness",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "bbc-internal-bootstrap": "git@github.com:bbc/bbc-internal-bootstrap#~0.1.8",
+    "requirejs": "~2.1.15"
+  },
+  "devDependencies": {}
+}

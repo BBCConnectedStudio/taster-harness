@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BBC Taster test harness</title>
+  <meta charset="utf-8">
+  <script>
+
+    /* START CONFIG HERE!! */
+
+    var taster = {
+      pilot_url: 'http://dummy.pilots.bbcconnectedstudio.co.uk/', /* this should be the entry URL for your application */
+      is_16x9: true /* if your pilot should be constrained to 16:9, set that here */
+    };
+
+    /* END CONFIG HERE!! */
+
+  </script>
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/bower_components/bbc-internal-bootstrap/dist/bbc-bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/harness.css">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+</head>
+<body>
+<header class="MastHead" role="banner">
+  <div class="container">
+    <h1><a class="MastHead-brand MastHead-brand--default" href="index.html">Taster Test Harness</a></h1>
+  </div>
+</header>
+
+<div class="PageHeader">
+  <div class="container">
+    <div class="row">
+      <h2 class="PageHeader-title">Getting Started</h2>
+      <p class="PageHeader-description">
+        The Taster test harness exists to simulate the interaction points between a pilot and being hosted in the
+        Taster IFrame, pilot authors can use it to check their key integration points before raising it with the
+        Taster team to generate a preview link on the full website.
+      </p>
+      <p class="PageHeader-description">
+        You should edit the source of this page to change the JavaScript configuration in the header to be the URL
+        of your pilot and also the integration mode (16:9 or "full height").
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="Page" role="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 info-button taster-tab">Info</div>
+      <div class="col-xs-6 try-button taster-tab">Try</div>
+    </div>
+    <div class="row info-page active">
+      <h2 class="PageHeader-title">Info Page</h2>
+      <p class="PageHeader-description">
+        By default, people landing on Taster are presented with an info page about the pilot and then invited to try it.
+        Use the tabs above to switch between Info and Try. Switching between the states will send the
+        <a href="https://confluence.dev.bbc.co.uk/display/PROTOALPHA/IFrame+JavaScript+events">'show' and 'hide'</a>
+        events to your pilot.
+      </p>
+      <p>This harness will also respond to
+        <a href="https://confluence.dev.bbc.co.uk/display/PROTOALPHA/IFrame+JavaScript+events">height change requests</a>
+        sent by your application and will
+        <a href="https://confluence.dev.bbc.co.uk/display/PROTOALPHA/Pilot+Initialisation+query+strings">initialise it
+        correctly based on the hashbang parameter passed in the URL</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="try-page">
+  <div class="iframe-wrapper"></div>
+</div>
+
+<script src="bower_components/requirejs/require.js"></script>
+<script>
+  require.config({
+    baseUrl: 'assets',
+    paths: {
+      jquery: '../bower_components/jquery/dist/jquery.min'
+    }
+  });
+  require(['harness']);
+</script>
+
+</body>
+</html>
