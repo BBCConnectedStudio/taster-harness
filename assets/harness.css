@@ -22,12 +22,13 @@ h1 {
 }
 
 .try-page {
-    display: none;
-    position: relative;
+    position: absolute;
+    visibility: hidden;
 }
 
 .active {
-    display: block;
+    position: relative;
+    visibility: visible;
 }
 
 .try-page--full-height {
