@@ -14,11 +14,13 @@ h1 {
     padding: 1em;
 }
 
-.info-page {
+.info-page,
+.story-page {
     border: 1px solid #3c3c3c;
     border-top: 0;
-    display: none;
     padding: 1em;
+    position: absolute;
+    visibility: hidden;
 }
 
 .try-page {
